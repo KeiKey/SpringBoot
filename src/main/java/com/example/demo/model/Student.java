@@ -1,29 +1,32 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.UUID;
 
 public class Student {
-    private final UUID id;
+    private UUID id;
     private final String firstName;
     private final String lastName;
     private final Integer age;
-    private final String course;
 
     public Student(
-            UUID id,
-            String firstName,
-            String lastName,
-            Integer age,
-            String course) {
+            @JsonProperty("id") UUID id,
+            @JsonProperty("firstName") String firstName,
+            @JsonProperty("lastName") String lastName,
+            @JsonProperty("age") Integer age) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.course = course;
     }
 
     public UUID getId() {
         return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -36,9 +39,5 @@ public class Student {
 
     public Integer getAge() {
         return age;
-    }
-
-    public String getCourse() {
-        return course;
     }
 }
