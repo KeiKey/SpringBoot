@@ -43,4 +43,22 @@ public class StudentController {
     public void insertNewStudent(@RequestBody Student student) {
         studentService.persistNewStudent(null, student);
     }
+
+    @RequestMapping(
+            method = RequestMethod.PUT,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            path = "{studentId}"
+    )
+    public void updateStudent(@PathVariable("studentId")UUID studentId, @RequestBody Student student) {
+        studentService.updateStudent(studentId, student);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.DELETE,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            path = "{studentId}"
+    )
+    public void deleteStudent(@PathVariable("studentId")UUID studentId) {
+        studentService.deleteStudentById(studentId);
+    }
 }
