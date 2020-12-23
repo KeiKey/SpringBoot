@@ -8,6 +8,7 @@ import java.util.*;
 
 @Repository ("UserRepository")
 public class UserRepository extends BaseRepository implements UserRepositoryContract {
+
     private final Map<UUID, User> database;
 
     public UserRepository() {
@@ -42,4 +43,5 @@ public class UserRepository extends BaseRepository implements UserRepositoryCont
     public void destroy(UUID userId) {
         database.remove(userId);
     }
+
 }

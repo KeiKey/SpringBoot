@@ -5,4 +5,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository("EventRepository")
 public class EventRepository extends BaseRepository implements EventRepositoryContract {
+
+    public EventRepository() {
+
+    }
+
 }

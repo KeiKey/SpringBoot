@@ -14,6 +14,7 @@ import java.util.UUID;
 * */
 @Service
 public class UserService {
+
     private final UserRepositoryContract userRepositoryContract;
 
     @Autowired
@@ -42,4 +43,5 @@ public class UserService {
     public void deleteUserById(UUID userId) {
         userRepositoryContract.destroy(userId);
     }
+
 }

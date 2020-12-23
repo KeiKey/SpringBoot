@@ -13,6 +13,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("api/v1/users")
 public class UserController extends Controller {
+
     private final UserService userService;
 
     @Autowired
@@ -67,4 +68,5 @@ public class UserController extends Controller {
     public void deleteUser(@PathVariable("userId")UUID userId) {
         userService.deleteUserById(userId);
     }
+
 }
