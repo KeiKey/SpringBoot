@@ -1,10 +1,10 @@
-package com.example.demo.model.student;
+package com.example.demo.models.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.UUID;
 
-public class Student {
+public class User {
 
     /*TODO
     * Find how to use traits in java: relationsTrait, attributesTrait
@@ -15,7 +15,7 @@ public class Student {
     private final String lastName;
     private final Integer age;
 
-    public Student(
+    public User(
             @JsonProperty("id") UUID id,
             @JsonProperty("firstName") String firstName,
             @JsonProperty("lastName") String lastName,

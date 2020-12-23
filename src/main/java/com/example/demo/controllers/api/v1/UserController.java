@@ -1,8 +1,8 @@
 package com.example.demo.controllers.api.v1;
 
 import com.example.demo.controllers.Controller;
-import com.example.demo.model.student.Student;
-import com.example.demo.service.StudentService;
+import com.example.demo.models.user.User;
+import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/v1/students")
-public class StudentController extends Controller {
-    private final StudentService studentService;
+@RequestMapping("api/v1/users")
+public class UserController extends Controller {
+    private final UserService userService;
 
     @Autowired
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     /*TODO
@@ -27,44 +27,44 @@ public class StudentController extends Controller {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public List<Student> getAllStudents() {
-        return studentService.getAllStudents();
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 
     @RequestMapping(
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE,
-            path = "{studentId}"
+            path = "{userId}"
     )
-    public Student getStudentById(@PathVariable("studentId")UUID studentId) {
-        return studentService.getStudentById(studentId);
+    public User getUserById(@PathVariable("userId")UUID userId) {
+        return userService.getUserById(userId);
     }
 
     @RequestMapping(
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public void insertNewStudent(@RequestBody Student student) {
-        studentService.persistNewStudent(null, student);
+    public void insertNewUser(@RequestBody User user) {
+        userService.persistNewUser(null, user);
     }
 
     @RequestMapping(
             method = RequestMethod.PUT,
             consumes = MediaType.APPLICATION_JSON_VALUE,
-            path = "{studentId}"
+            path = "{userId}"
     )
-    public void updateStudent(
-            @PathVariable("studentId")UUID studentId,
-            @RequestBody Student student) {
-        studentService.updateStudent(studentId, student);
+    public void updateUser(
+            @PathVariable("userId")UUID userId,
+            @RequestBody User user) {
+        userService.updateUser(userId, user);
     }
 
     @RequestMapping(
             method = RequestMethod.DELETE,
             consumes = MediaType.APPLICATION_JSON_VALUE,
-            path = "{studentId}"
+            path = "{userId}"
     )
-    public void deleteStudent(@PathVariable("studentId")UUID studentId) {
-        studentService.deleteStudentById(studentId);
+    public void deleteUser(@PathVariable("userId")UUID userId) {
+        userService.deleteUserById(userId);
     }
 }
