@@ -20,6 +20,9 @@ public class StudentController extends Controller {
         this.studentService = studentService;
     }
 
+    /*TODO
+    * Learn if we can use routes on spring boot? Single functionality for a file?! Bloated controller?!
+    * */
     @RequestMapping(
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE

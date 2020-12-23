@@ -6,8 +6,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+/*TODO
+* Naming conventions same as laravel?
+* Proper functions
+* */
+//Can i name the file repository instead of dao?
 @Repository ("StudentDao")
-public class StudentDao extends BaseDao implements StudentDaoContract{
+public class StudentDao extends BaseDao implements StudentDaoContract {
     private final Map<UUID, Student> database;
 
     public StudentDao() {
@@ -25,7 +30,7 @@ public class StudentDao extends BaseDao implements StudentDaoContract{
     }
 
     @Override
-    public Student selectStudentById(UUID studentId) {
+    public Student find(UUID studentId) {
         return database.get(studentId);
     }
 

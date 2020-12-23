@@ -5,11 +5,17 @@ import com.example.demo.model.student.Student;
 import java.util.List;
 import java.util.UUID;
 
-public interface StudentDaoContract extends BaseDaoContract{
+/*TODO
+* dont pass the student as an argument but maybe array?
+* */
+public interface StudentDaoContract extends BaseDaoContract {
 
     int create(UUID studentId, Student student);
 
-    Student selectStudentById(UUID studentId);
+    /*TODO
+    * make a function findBY(attribute, value)
+    * */
+    Student find(UUID studentId);
 
     List<Student> all();
 

@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
+/*TODO
+* naming conventions for the functions?
+* proper functions?
+* */
 @Service
 public class StudentService {
     private final StudentDaoContract studentDaoContract;
@@ -25,7 +29,7 @@ public class StudentService {
     }
 
     public Student getStudentById(UUID studentId) {
-        return studentDaoContract.selectStudentById(studentId);
+        return studentDaoContract.find(studentId);
     }
 
     public List<Student> getAllStudents() {

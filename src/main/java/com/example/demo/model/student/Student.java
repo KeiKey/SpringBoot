@@ -6,7 +6,10 @@ import java.util.UUID;
 
 public class Student {
 
-    //How to use traits in java?
+    /*TODO
+    * Find how to use traits in java: relationsTrait, attributesTrait
+    * */
+
     private UUID id;
     private final String firstName;
     private final String lastName;
