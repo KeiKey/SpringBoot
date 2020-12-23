@@ -1,6 +1,7 @@
-package com.example.demo.controller;
+package com.example.demo.controllers.api.v1;
 
-import com.example.demo.model.Student;
+import com.example.demo.controllers.Controller;
+import com.example.demo.model.student.Student;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -11,7 +12,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("api/v1/students")
-public class StudentController {
+public class StudentController extends Controller {
     private final StudentService studentService;
 
     @Autowired

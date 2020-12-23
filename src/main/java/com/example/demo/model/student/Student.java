@@ -1,10 +1,12 @@
-package com.example.demo.model;
+package com.example.demo.model.student;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.UUID;
 
 public class Student {
+
+    //How to use traits in java?
     private UUID id;
     private final String firstName;
     private final String lastName;

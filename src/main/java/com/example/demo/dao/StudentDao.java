@@ -1,18 +1,48 @@
 package com.example.demo.dao;
 
-import com.example.demo.model.Student;
+import com.example.demo.dao.contracts.StudentDaoContract;
+import com.example.demo.model.student.Student;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
-public interface StudentDao {
-    int insetNewStudent(UUID studentId, Student student);
+@Repository ("StudentDao")
+public class StudentDao extends BaseDao implements StudentDaoContract{
+    private Map<UUID, Student> database;
 
-    Student selectStudentById(UUID studentId);
+    public StudentDao() {
+        database = new HashMap<>();
 
-    List<Student> selectAllStudents();
+        //Adding a dummy student
+        UUID studentId = UUID.randomUUID();
+        database.put(studentId, new Student(studentId, "Kei", "Selami", 22));
+    }
 
-    int updateStudent(UUID studentId, Student studentUpdate);
+    @Override
+    public int create(UUID studentId, Student student) {
+        database.put(studentId, student);
+        return 1;
+    }
 
-    int deleteStudentById(UUID studentId);
+    @Override
+    public Student selectStudentById(UUID studentId) {
+        return database.get(studentId);
+    }
+
+    @Override
+    public List<Student> all() {
+        return new ArrayList<>(database.values());
+    }
+
+    @Override
+    public int update(UUID studentId, Student studentUpdate) {
+        database.put(studentId, studentUpdate);
+        return 1;
+    }
+
+    @Override
+    public int destroy(UUID studentId) {
+        database.remove(studentId);
+        return 1;
+    }
 }
