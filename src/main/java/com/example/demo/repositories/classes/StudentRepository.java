@@ -1,6 +1,6 @@
-package com.example.demo.dao;
+package com.example.demo.repositories.classes;
 
-import com.example.demo.dao.contracts.StudentDaoContract;
+import com.example.demo.repositories.contracts.StudentRepositoryContract;
 import com.example.demo.model.student.Student;
 import org.springframework.stereotype.Repository;
 
@@ -10,12 +10,11 @@ import java.util.*;
 * Naming conventions same as laravel?
 * Proper functions
 * */
-//Can i name the file repository instead of dao?
-@Repository ("StudentDao")
-public class StudentDao extends BaseDao implements StudentDaoContract {
+@Repository ("StudentRepository")
+public class StudentRepository extends BaseRepository implements StudentRepositoryContract {
     private final Map<UUID, Student> database;
 
-    public StudentDao() {
+    public StudentRepository() {
         database = new HashMap<>();
 
         //Adding a dummy student

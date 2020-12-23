@@ -1,4 +1,4 @@
-package com.example.demo.dao.contracts;
+package com.example.demo.repositories.contracts;
 
 import com.example.demo.model.student.Student;
 
@@ -8,7 +8,7 @@ import java.util.UUID;
 /*TODO
 * dont pass the student as an argument but maybe array?
 * */
-public interface StudentDaoContract extends BaseDaoContract {
+public interface StudentRepositoryContract extends BaseRepositoryContract {
 
     int create(UUID studentId, Student student);
 
