@@ -11,7 +11,6 @@ import java.util.UUID;
 
 /*TODO
 * naming conventions for the functions?
-* proper functions?
 * */
 @Service
 public class UserService {
@@ -22,10 +21,10 @@ public class UserService {
         this.userRepositoryContract = userRepositoryContract;
     }
 
-    public int persistNewUser(UUID userId, User user) {
+    public void persistNewUser(UUID userId, User user) {
         UUID userUid = userId == null ? UUID.randomUUID() : userId;
         user.setId(userUid);
-        return userRepositoryContract.create(userUid, user);
+        userRepositoryContract.create(userUid, user);
     }
 
     public User getUserById(UUID userId) {
@@ -36,11 +35,11 @@ public class UserService {
         return userRepositoryContract.all();
     }
 
-    public int updateUser(UUID userId, User userUpdate) {
-        return userRepositoryContract.update(userId, userUpdate);
+    public void updateUser(UUID userId, User userUpdate) {
+        userRepositoryContract.update(userId, userUpdate);
     }
 
-    public int deleteUserById(UUID userId) {
-        return userRepositoryContract.destroy(userId);
+    public void deleteUserById(UUID userId) {
+        userRepositoryContract.destroy(userId);
     }
 }

@@ -10,17 +10,17 @@ import java.util.UUID;
 * */
 public interface UserRepositoryContract extends BaseRepositoryContract {
 
-    int create(UUID userId, User user);
+    void create(UUID userId, User user);
 
     /*TODO
-    * make a function findBY(attribute, value)
+    * make the function findBY(attribute, value)
     * */
     User find(UUID userId);
 
     List<User> all();
 
-    int update(UUID userId, User userUpdate);
+    void update(UUID userId, User userUpdate);
 
-    int destroy(UUID userId);
+    void destroy(UUID userId);
 
 }
