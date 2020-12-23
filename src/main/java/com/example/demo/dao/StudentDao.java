@@ -8,14 +8,14 @@ import java.util.*;
 
 @Repository ("StudentDao")
 public class StudentDao extends BaseDao implements StudentDaoContract{
-    private Map<UUID, Student> database;
+    private final Map<UUID, Student> database;
 
     public StudentDao() {
         database = new HashMap<>();
 
         //Adding a dummy student
         UUID studentId = UUID.randomUUID();
-        database.put(studentId, new Student(studentId, "Kei", "Selami", 22));
+        database.put(studentId, new Student(studentId, "Kei", "Salami", 22));
     }
 
     @Override

@@ -50,7 +50,9 @@ public class StudentController extends Controller {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             path = "{studentId}"
     )
-    public void updateStudent(@PathVariable("studentId")UUID studentId, @RequestBody Student student) {
+    public void updateStudent(
+            @PathVariable("studentId")UUID studentId,
+            @RequestBody Student student) {
         studentService.updateStudent(studentId, student);
     }
 
