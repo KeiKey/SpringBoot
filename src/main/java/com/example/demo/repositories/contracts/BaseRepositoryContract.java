@@ -1,5 +1,7 @@
 package com.example.demo.repositories.contracts;
 
-public interface BaseRepositoryContract {
+import org.springframework.data.repository.CrudRepository;
+
+public interface BaseRepositoryContract extends CrudRepository {
 
 }
